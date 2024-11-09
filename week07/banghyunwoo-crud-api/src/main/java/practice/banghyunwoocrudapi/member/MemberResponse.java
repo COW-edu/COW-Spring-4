@@ -5,13 +5,13 @@ import lombok.Getter;
 
 @Getter
 public class MemberResponse {
-    private int id;
+    private String id;
     private String username;
     private String email;
     private String password;
 
     @Builder
-    public MemberResponse(int id, String username, String email, String password) {
+    public MemberResponse(String id, String username, String email, String password) {
         this.id = id;
         this.username = username;
         this.email = email;

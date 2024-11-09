@@ -9,20 +9,20 @@ public class MemberController {
 
     private final MemberService memberService;
 
-    @PostMapping("/members")
+    @PostMapping("/members/{id}")
     public void signUp(@RequestBody CreateMemberRequest createMemberRequest){
         memberService.signUp(createMemberRequest);
         System.out.println(createMemberRequest.toString());
     }
 
-    @GetMapping("/members")
+    @GetMapping("/members/{id}")
     public MemberResponse getMember(@RequestBody MemberResponse memberResponse){
-        return memberService.getMember(memberResponse.getUsername());
+        return memberService.getMember(memberResponse.getId());
     }
 
-    @PostMapping("/members/{username}")
-    public MemberResponse editMember(@RequestBody MemberResponse memberResponse){
-        return memberService.editMember(memberResponse.getUsername());
+    @PutMapping("/members/{id}")
+    public void updateMember(@PathVariable("id") String id, @RequestBody Member member){
+        memberService.updateMember(id, member);
     }
 
 }

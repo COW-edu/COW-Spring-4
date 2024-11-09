@@ -6,7 +6,7 @@ import lombok.Getter;
 
 @Getter
 public class Member {
-    private int id;
+    private String id;
 
     private String name;
 
@@ -14,8 +14,8 @@ public class Member {
 
     private String password;
 
-    @Builder
-    public Member(int id, String name, String email, String password) {
+    @Builder(toBuilder = true)
+    public Member(String id, String name, String email, String password) {
         this.id = id;
         this.name = name;
         this.email = email;

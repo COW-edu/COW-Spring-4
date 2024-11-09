@@ -12,14 +12,11 @@ public class MemberRepository {
     private final Map<String, Member> memberRepository = new ConcurrentHashMap<>();
 
     public void save(Member member) {
-        memberRepository.put(member.getName(), member);
+        memberRepository.put(member.getId(), member);
     }
 
-    public Member findByName(String name) {
-        return memberRepository.get(name);
+    public Member findById(String id) {
+        return memberRepository.get(id);
     }
 
-//    public Member updateInformation(String name){
-//        memberRepository.replace(name);
-//    }
 }
