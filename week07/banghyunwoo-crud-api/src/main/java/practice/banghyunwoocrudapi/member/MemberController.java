@@ -20,4 +20,9 @@ public class MemberController {
         return memberService.getMember(memberResponse.getUsername());
     }
 
+    @PostMapping("/members/{username}")
+    public MemberResponse editMember(@RequestBody MemberResponse memberResponse){
+        return memberService.editMember(memberResponse.getUsername());
+    }
+
 }

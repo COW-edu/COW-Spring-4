@@ -18,4 +18,8 @@ public class MemberRepository {
     public Member findByName(String name) {
         return memberRepository.get(name);
     }
+
+//    public Member updateInformation(String name){
+//        memberRepository.replace(name);
+//    }
 }
