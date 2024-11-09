@@ -13,4 +13,10 @@ public class MemberService {
         Member member = createMemberRequest.toEntity();
         memberRepository.save(member);
     }
+
+    public MemberResponse getMember(String name) {
+        Member member = memberRepository.findByName(name);
+        return MemberResponse.from(member);
+    }
+
 }

@@ -14,4 +14,8 @@ public class MemberRepository {
     public void save(Member member) {
         memberRepository.put(member.getName(), member);
     }
+
+    public Member findByName(String name) {
+        return memberRepository.get(name);
+    }
 }
