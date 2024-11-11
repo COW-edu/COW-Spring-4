@@ -17,6 +17,11 @@ public class BoardService {
     }
 
     public List<BoardResponse> getAllPost() {
-        return boardRepository.getPost();
+        return boardRepository.getAllPost();
+    }
+
+    public BoardResponse getPost(int id) {
+        Board board = boardRepository.getPost(id);
+        return BoardResponse.from(board);
     }
 }

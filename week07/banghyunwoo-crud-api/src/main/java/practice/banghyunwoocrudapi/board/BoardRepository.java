@@ -18,7 +18,11 @@ public class BoardRepository {
         boardRepository.put(id,board);
     }
 
-    public List<BoardResponse> getPost() {
+    public List<BoardResponse> getAllPost() {
         return boardRepository.entrySet().stream().map(entry -> BoardResponse.from(entry.getValue())).collect(Collectors.toList());
+    }
+
+    public Board getPost(int id) {
+        return boardRepository.get(id);
     }
 }

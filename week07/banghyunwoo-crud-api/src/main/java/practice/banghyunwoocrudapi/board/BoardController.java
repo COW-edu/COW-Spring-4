@@ -20,4 +20,9 @@ public class BoardController {
     public List<BoardResponse> getAllPost(){
         return boardService.getAllPost();
     }
+
+    @GetMapping("/boards/{id}")
+    public BoardResponse getPost(@PathVariable int id){
+        return boardService.getPost(id);
+    }
 }
