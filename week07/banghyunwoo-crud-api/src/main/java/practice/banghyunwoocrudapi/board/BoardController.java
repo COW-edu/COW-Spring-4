@@ -31,4 +31,9 @@ public class BoardController {
                             @RequestBody UpdateBoardRequest updateBoardRequest){
         boardService.updateBoard(id, updateBoardRequest);
     }
+
+    @DeleteMapping("/boards/delete/{id}")
+    public void deletePost(@PathVariable int id){
+        boardService.deletePost(id);
+    }
 }

@@ -30,4 +30,8 @@ public class BoardService {
         Board updateboard = updateBoardRequest.getPost(board, updateBoardRequest);
         boardRepository.update(updateboard);
     }
+
+    public void deletePost(int id) {
+        boardRepository.delete(id);
+    }
 }

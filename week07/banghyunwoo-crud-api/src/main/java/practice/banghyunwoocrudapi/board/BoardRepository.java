@@ -29,4 +29,8 @@ public class BoardRepository {
     public void update(Board board) {
         boardRepository.put(board.getId(), board);
     }
+
+    public void delete(int id) {
+        boardRepository.remove(id);
+    }
 }
