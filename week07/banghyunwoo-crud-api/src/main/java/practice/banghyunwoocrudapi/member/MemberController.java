@@ -16,8 +16,8 @@ public class MemberController {
     }
 
     @GetMapping("/members/{id}")
-    public MemberResponse getMember(@RequestBody MemberResponse memberResponse){
-        return memberService.getMember(memberResponse.getId());
+    public MemberResponse getMember(@PathVariable String id){
+        return memberService.getMember(id);
     }
 
     @PutMapping("/members/update/{id}")

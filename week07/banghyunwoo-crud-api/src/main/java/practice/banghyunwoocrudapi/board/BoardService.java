@@ -3,6 +3,8 @@ package practice.banghyunwoocrudapi.board;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class BoardService {
@@ -12,5 +14,9 @@ public class BoardService {
     public void createBoard(CreateBoardRequest createBoardRequest) {
         Board board = createBoardRequest.toEntity();
         boardRepository.save(board);
+    }
+
+    public List<BoardResponse> getAllPost() {
+        return boardRepository.getPost();
     }
 }

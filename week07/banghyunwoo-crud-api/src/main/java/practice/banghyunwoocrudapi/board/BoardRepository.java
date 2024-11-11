@@ -2,8 +2,10 @@ package practice.banghyunwoocrudapi.board;
 
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.stream.Collectors;
 
 @Repository
 public class BoardRepository {
@@ -12,6 +14,11 @@ public class BoardRepository {
 
     public void save(Board board) {
         ++id;
+        board.setId(id);
         boardRepository.put(id,board);
+    }
+
+    public List<BoardResponse> getPost() {
+        return boardRepository.entrySet().stream().map(entry -> BoardResponse.from(entry.getValue())).collect(Collectors.toList());
     }
 }
