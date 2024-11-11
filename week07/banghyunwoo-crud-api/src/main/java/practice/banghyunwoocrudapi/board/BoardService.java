@@ -24,4 +24,10 @@ public class BoardService {
         Board board = boardRepository.getPost(id);
         return BoardResponse.from(board);
     }
+
+    public void updateBoard(int id, UpdateBoardRequest updateBoardRequest) {
+        Board board = boardRepository.getPost(id);
+        Board updateboard = updateBoardRequest.getPost(board, updateBoardRequest);
+        boardRepository.update(updateboard);
+    }
 }

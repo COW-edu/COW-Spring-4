@@ -25,4 +25,8 @@ public class BoardRepository {
     public Board getPost(int id) {
         return boardRepository.get(id);
     }
+
+    public void update(Board board) {
+        boardRepository.put(board.getId(), board);
+    }
 }

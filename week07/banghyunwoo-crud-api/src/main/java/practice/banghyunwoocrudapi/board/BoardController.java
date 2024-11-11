@@ -25,4 +25,10 @@ public class BoardController {
     public BoardResponse getPost(@PathVariable int id){
         return boardService.getPost(id);
     }
+
+    @PutMapping("/boards/update/{id}")
+    public void updateBoard(@PathVariable int id,
+                            @RequestBody UpdateBoardRequest updateBoardRequest){
+        boardService.updateBoard(id, updateBoardRequest);
+    }
 }
