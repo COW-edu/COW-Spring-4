@@ -13,13 +13,12 @@ public class UpdateMemberRequest {
     private String email;
     private String password;
 
-    public static Member getMember(Member updateMemberRequest, Member member) {
-        Member updatedMember = member.toBuilder()
-                .name(updateMemberRequest.getName() != null ? updateMemberRequest.getName() : member.getName())
+    public static Member getMember(UpdateMemberRequest updateMemberRequest, Member member) {
+        return member.toBuilder()
+                .name(updateMemberRequest.getUsername() != null ? updateMemberRequest.getUsername() : member.getName())
                 .email(updateMemberRequest.getEmail() != null ? updateMemberRequest.getEmail() : member.getEmail())
                 .password(updateMemberRequest.getPassword() != null ? updateMemberRequest.getPassword() : member.getPassword())
                 .build();
-        return updatedMember;
     }
 
 }

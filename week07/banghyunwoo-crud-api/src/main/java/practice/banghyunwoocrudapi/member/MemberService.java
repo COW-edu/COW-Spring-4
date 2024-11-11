@@ -19,7 +19,7 @@ public class MemberService {
         return MemberResponse.from(member);
     }
 
-    public void updateMember(String id, Member updateMemberRequest) {
+    public void updateMember(String id, UpdateMemberRequest updateMemberRequest) {
         Member member = memberRepository.findById(id);
         Member updatedMember = UpdateMemberRequest.getMember(updateMemberRequest, member);
         memberRepository.save(updatedMember);
