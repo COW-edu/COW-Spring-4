@@ -19,4 +19,7 @@ public class MemberRepository {
         return memberRepository.get(id);
     }
 
+    public void delete(String id) {
+        memberRepository.remove(id);
+    }
 }

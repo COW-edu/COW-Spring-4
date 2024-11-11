@@ -9,7 +9,7 @@ public class MemberController {
 
     private final MemberService memberService;
 
-    @PostMapping("/members/{id}")
+    @PostMapping("/members")
     public void signUp(@RequestBody CreateMemberRequest createMemberRequest){
         memberService.signUp(createMemberRequest);
         System.out.println(createMemberRequest.toString());
@@ -20,9 +20,13 @@ public class MemberController {
         return memberService.getMember(memberResponse.getId());
     }
 
-    @PutMapping("/members/{id}")
+    @PutMapping("/members/update/{id}")
     public void updateMember(@PathVariable("id") String id, @RequestBody Member member){
         memberService.updateMember(id, member);
     }
 
+    @DeleteMapping("/members/delete/{id}")
+    public void deleteMember(@PathVariable String id){
+        memberService.deleteMember(id);
+    }
 }

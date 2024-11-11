@@ -26,5 +26,7 @@ public class MemberService {
     }
 
 
-
+    public void deleteMember(String id) {
+        memberRepository.delete(id);
+    }
 }
