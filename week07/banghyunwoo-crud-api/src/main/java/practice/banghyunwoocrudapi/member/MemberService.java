@@ -9,12 +9,6 @@ public class MemberService {
 
     private final MemberRepository memberRepository;
 
-    public void updateMember(String id, Member updateMemberRequest) {
-        Member member = memberRepository.findById(id);
-        Member updatedMember = UpdateMemberRequest.getMember(updateMemberRequest, member);
-        memberRepository.save(updatedMember);
-    }
-
     public void signUp(CreateMemberRequest createMemberRequest) {
         Member member = createMemberRequest.toEntity();
         memberRepository.save(member);
@@ -25,6 +19,11 @@ public class MemberService {
         return MemberResponse.from(member);
     }
 
+    public void updateMember(String id, Member updateMemberRequest) {
+        Member member = memberRepository.findById(id);
+        Member updatedMember = UpdateMemberRequest.getMember(updateMemberRequest, member);
+        memberRepository.save(updatedMember);
+    }
 
     public void deleteMember(String id) {
         memberRepository.delete(id);
