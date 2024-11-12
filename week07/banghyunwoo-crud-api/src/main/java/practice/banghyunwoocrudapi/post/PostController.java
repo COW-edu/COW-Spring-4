@@ -7,33 +7,33 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
+@RequestMapping("/posts")
 public class PostController {
 
     private final PostService postService;
 
-    @PostMapping("/posts")
+    @PostMapping
     public void createPost(@RequestBody CreatePostRequest createPostRequest) {
-        ;
         postService.createPost(createPostRequest);
     }
 
-    @GetMapping("/posts")
+    @GetMapping
     public List<PostResponse> getAllPost() {
         return postService.getAllPost();
     }
 
-    @GetMapping("/posts/{id}")
+    @GetMapping("/:{id}")
     public PostResponse getPost(@PathVariable int id) {
         return postService.getPost(id);
     }
 
-    @PutMapping("/posts/update/{id}")
+    @PutMapping("/:{id}")
     public void updatePost(@PathVariable int id,
                            @RequestBody UpdatePostRequest updatePostRequest) {
         postService.updatePost(id, updatePostRequest);
     }
 
-    @DeleteMapping("/posts/delete/{id}")
+    @DeleteMapping("/:{id}")
     public void deletePost(@PathVariable int id) {
         postService.deletePost(id);
     }
