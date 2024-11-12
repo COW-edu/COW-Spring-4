@@ -1,7 +1,10 @@
 package practice.kimsioncrudapi.member;
 
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.autoconfigure.web.servlet.error.DefaultErrorViewResolver;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,6 +18,11 @@ public class MemberController {
   @PostMapping("/members")
   public void signUp(@RequestBody CreateMemberRequest createMemberRequest){
     memberService.signUp(createMemberRequest);
+  }
+
+  @GetMapping("/members/{name}")
+  public MemberResponse getMember(@PathVariable("name") String name){
+    return memberService.getMember(name);
   }
 
 }

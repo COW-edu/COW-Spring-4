@@ -1,10 +1,9 @@
 package practice.kimsioncrudapi.member;
 
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 @Getter
-public class CreateMemberRequest {
+public class CreateMemberRequest { // DTO
 
   private String username;
   private String email;
