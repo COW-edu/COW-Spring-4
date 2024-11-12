@@ -15,18 +15,18 @@ public class MemberController {
         memberService.signUp(createMemberRequest);
     }
 
-    @GetMapping("/:{id}")
+    @GetMapping("/{id}")
     public MemberResponse getMember(@PathVariable String id){
         return memberService.getMember(id);
     }
 
-    @PutMapping("/:{id}")
+    @PutMapping("/{id}")
     public void updateMember(@PathVariable("id") String id,
                              @RequestBody UpdateMemberRequest updateMemberRequest){
         memberService.updateMember(id, updateMemberRequest);
     }
 
-    @DeleteMapping("/:{id}")
+    @DeleteMapping("/{id}")
     public void deleteMember(@PathVariable String id){
         memberService.deleteMember(id);
     }

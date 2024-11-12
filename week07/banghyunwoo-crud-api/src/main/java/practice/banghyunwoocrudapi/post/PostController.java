@@ -22,18 +22,18 @@ public class PostController {
         return postService.getAllPost();
     }
 
-    @GetMapping("/:{id}")
+    @GetMapping("/{id}")
     public PostResponse getPost(@PathVariable int id) {
         return postService.getPost(id);
     }
 
-    @PutMapping("/:{id}")
+    @PutMapping("/{id}")
     public void updatePost(@PathVariable int id,
                            @RequestBody UpdatePostRequest updatePostRequest) {
         postService.updatePost(id, updatePostRequest);
     }
 
-    @DeleteMapping("/:{id}")
+    @DeleteMapping("/{id}")
     public void deletePost(@PathVariable int id) {
         postService.deletePost(id);
     }
