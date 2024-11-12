@@ -1,9 +1,7 @@
 package practice.seoayeongcrudapi.member;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -16,4 +14,8 @@ public class MemberController {
         memberService.signUp(createMemberRequest);
     }
 
+    @GetMapping("/members/{name}")
+    public MemberResponse getMember(@PathVariable("name") String name) {
+        return memberService.getMember(name);
+    }
 }
