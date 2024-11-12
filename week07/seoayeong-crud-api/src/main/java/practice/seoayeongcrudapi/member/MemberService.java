@@ -18,4 +18,5 @@ public class MemberService {
         Member member = memberRepository.findByName(name);
         return MemberResponse.from(member);
     }
+
 }

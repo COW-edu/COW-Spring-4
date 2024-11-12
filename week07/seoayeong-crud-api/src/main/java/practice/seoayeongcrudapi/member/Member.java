@@ -5,6 +5,8 @@ import lombok.Getter;
 
 @Getter
 public class Member {
+    private String id;
+
     private String name;
 
     private String email;
@@ -12,7 +14,8 @@ public class Member {
     private String password;
 
     @Builder
-    private Member (String email, String name, String password) {
+    private Member (String id, String email, String name, String password) {
+        this.id = id;
         this.email = email;
         this.name = name;
         this.password = password;
