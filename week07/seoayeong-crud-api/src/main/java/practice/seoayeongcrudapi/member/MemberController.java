@@ -18,4 +18,11 @@ public class MemberController {
     public MemberResponse getMember(@PathVariable("name") String name) {
         return memberService.getMember(name);
     }
+
+    @PutMapping("/members/{name}")
+    public void updateMember(@RequestBody UpdateMemberRequest updateMemberRequest, @PathVariable("name") String name) {
+        memberService.updateMember(updateMemberRequest);
+    }
+
+
 }

@@ -15,7 +15,12 @@ public class MemberRepository {
     public void save(Member member) {
         memberRepository.put(member.getName(), member);
     }
-
+    public void patch(Member member) {
+        memberRepository.put(member.getName(), member);
+    }
+    public void delete(Member member) {
+        memberRepository.remove(member.getName(), member);
+    }
     public Member findByName(String name) {
         return memberRepository.get(name);
     }
