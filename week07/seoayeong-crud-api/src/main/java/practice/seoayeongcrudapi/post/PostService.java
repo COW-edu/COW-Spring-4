@@ -13,4 +13,8 @@ public class PostService {
         Post post = createPostRequest.toEntity();
         postRepository.upload(post);
     }
+    public PostResponse getPost(String id) {
+        Post post = postRepository.findById(id);
+        return PostResponse.from(post);
+    }
 }
