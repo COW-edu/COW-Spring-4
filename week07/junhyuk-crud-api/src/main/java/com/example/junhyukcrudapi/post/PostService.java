@@ -4,6 +4,7 @@ package com.example.junhyukcrudapi.post;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -19,8 +20,17 @@ public class PostService {
     }
 
     public List<PostResponse> getAllPosts() {
-        return postRepository.findAll().stream()
-                .map(post -> PostResponse.from(postRepository.findAll().indexOf(post) + 1L, post))
-                .collect(Collectors.toList());
+        List<Post> posts = postRepository.findAll();
+        List<PostResponse> postResponses = new ArrayList<>();
+        for (int i = 0; i < posts.size(); i++) {
+            Post post = posts.get(i);
+            postResponses.add(PostResponse.from((long) (i + 1), post));
+        }
+        return postResponses;
+    }
+
+    public PostResponse getPost(Long id) {
+        Post post = postRepository.findById(id);
+        return PostResponse.from(id, post);
     }
 }
