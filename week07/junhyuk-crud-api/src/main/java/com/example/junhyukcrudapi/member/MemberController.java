@@ -1,6 +1,7 @@
 package com.example.junhyukcrudapi.member;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -25,7 +26,8 @@ public class MemberController {
     }
 
     @DeleteMapping("/members/{name}")
-    public void deleteMember(@PathVariable String name) {
+    public ResponseEntity<Object> deleteMember(@PathVariable String name) {
         memberService.deleteMember(name);
+        return ResponseEntity.noContent().build();
     }
 }

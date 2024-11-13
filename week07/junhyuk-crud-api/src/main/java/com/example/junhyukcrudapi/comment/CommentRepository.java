@@ -16,7 +16,7 @@ public class CommentRepository {
     public Long save(Comment comment) {
         id++;
         comment = Comment.builder()
-                .id(id) // 생성된 id를 Comment에 설정
+                .id(id)
                 .content(comment.getContent())
                 .userId(comment.getUserId())
                 .postId(comment.getPostId())
