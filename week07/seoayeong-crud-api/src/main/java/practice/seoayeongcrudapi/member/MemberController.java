@@ -21,7 +21,12 @@ public class MemberController {
 
     @PutMapping("/members/{name}")
     public void updateMember(@RequestBody UpdateMemberRequest updateMemberRequest, @PathVariable("name") String name) {
-        memberService.updateMember(updateMemberRequest);
+        memberService.updateMember(name, updateMemberRequest);
+    }
+
+    @DeleteMapping("/members/{name}")
+    public void deleteMember(@PathVariable("name") String name) {
+        memberService.deleteMember(name);
     }
 
 

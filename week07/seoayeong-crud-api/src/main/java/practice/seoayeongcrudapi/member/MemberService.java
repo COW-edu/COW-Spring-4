@@ -19,14 +19,13 @@ public class MemberService {
         return MemberResponse.from(member);
     }
 
-    public void updateMember(UpdateMemberRequest updateMemberRequest) {
+    public void updateMember(String name, UpdateMemberRequest updateMemberRequest) {
         Member member = updateMemberRequest.toEntity();
-        memberRepository.patch(member);
+        memberRepository.patch(name, member);
     }
 
     public void deleteMember(String name) {
-        Member member = memberRepository.findByName(name);
-        memberRepository.delete(member);
+        memberRepository.delete(name);
     }
 
 }
