@@ -18,4 +18,8 @@ public class MemberRepository {
     public Member findByName(String name) {
         return memberRepository.get(name);
     }
+
+    public void delete(Member member) {
+        memberRepository.remove(member.getName(), member);
+    }
 }

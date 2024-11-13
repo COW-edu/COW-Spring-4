@@ -26,4 +26,5 @@ public class MemberResponse {
                 .password(member.getPassword())
                 .build();
     }
+
 }

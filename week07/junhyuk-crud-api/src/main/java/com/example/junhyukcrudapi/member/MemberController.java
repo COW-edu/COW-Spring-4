@@ -18,4 +18,14 @@ public class MemberController {
     public MemberResponse getMember(@PathVariable("name") String name) {
         return memberService.getMember(name);
     }
+
+    @PutMapping("/members/{name}")
+    public void updateMember(@PathVariable String name, @RequestBody UpdateMemberRequest updateMemberRequest) {
+        memberService.updateMember(name, updateMemberRequest);
+    }
+
+    @DeleteMapping("/members/{name}")
+    public void deleteMember(@PathVariable String name) {
+        memberService.deleteMember(name);
+    }
 }
