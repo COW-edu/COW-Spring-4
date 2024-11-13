@@ -16,4 +16,9 @@ public class Post {
         this.content = content;
         this.userId = userId;
     }
+
+    public void updatePost(String newTitle, String newContent) {
+        this.title = newTitle;
+        this.content = newContent;
+    }
 }

@@ -12,8 +12,8 @@ public class PostController {
     private final PostService postService;
 
     @PostMapping("/posts")
-    public Long createPost(@RequestBody CreatePostRequest createPostRequest) {
-        return postService.createPost(createPostRequest);
+    public void createPost(@RequestBody CreatePostRequest createPostRequest) {
+        postService.createPost(createPostRequest);
     }
 
     @GetMapping("/posts")
@@ -24,6 +24,16 @@ public class PostController {
     @GetMapping("/posts/{id}")
     public PostResponse getPost(@PathVariable("id") Long id) {
         return postService.getPost(id);
+    }
+
+    @PutMapping("/posts/{id}")
+    public void updatePost(@PathVariable("id") Long id, @RequestBody UpdatePostRequest updatePostRequest) {
+        postService.updatePost(id, updatePostRequest);
+    }
+
+    @DeleteMapping("/posts/{id}")
+    public void deletePost(@PathVariable("id") Long id) {
+        postService.deletePost(id);
     }
 
 }

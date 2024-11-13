@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -14,9 +13,14 @@ public class PostService {
 
     private final PostRepository postRepository;
 
-    public Long createPost(CreatePostRequest createPostRequest) {
+    public void createPost(CreatePostRequest createPostRequest) {
         Post post = createPostRequest.toEntity();
-        return postRepository.save(post);
+        postRepository.save(post);
+    }
+
+    public PostResponse getPost(Long id) {
+        Post post = postRepository.findById(id);
+        return PostResponse.from(id, post);
     }
 
     public List<PostResponse> getAllPosts() {
@@ -29,8 +33,13 @@ public class PostService {
         return postResponses;
     }
 
-    public PostResponse getPost(Long id) {
+    public void updatePost(Long id, UpdatePostRequest updatePostRequest) {
         Post post = postRepository.findById(id);
-        return PostResponse.from(id, post);
+        post.updatePost(updatePostRequest.getTitle(), updatePostRequest.getContent());
+    }
+
+    public void deletePost(Long id) {
+        Post post = postRepository.findById(id);
+        postRepository.delete(id, post);
     }
 }
