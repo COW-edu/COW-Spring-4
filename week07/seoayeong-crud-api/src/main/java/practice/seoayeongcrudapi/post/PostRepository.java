@@ -1,7 +1,5 @@
 package practice.seoayeongcrudapi.post;
 import org.springframework.stereotype.Repository;
-import practice.seoayeongcrudapi.member.Member;
-
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -15,4 +13,10 @@ public class PostRepository {
     public Post findById(String id) {
         return postRepository.get(id);
     }
+    public void patch(String title, Post post) {
+        postRepository.remove(title);
+        postRepository.put(post.getTitle(), post);
+    }
+
+
 }

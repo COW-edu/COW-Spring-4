@@ -2,7 +2,8 @@ package practice.seoayeongcrudapi.post;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import practice.seoayeongcrudapi.member.*;
+import practice.seoayeongcrudapi.member.Member;
+import practice.seoayeongcrudapi.member.UpdateMemberRequest;
 
 @Service
 @RequiredArgsConstructor
@@ -17,4 +18,9 @@ public class PostService {
         Post post = postRepository.findById(id);
         return PostResponse.from(post);
     }
+    public void updatePost(String title, UpdatePostRequest updatePostRequest) {
+        Post post = updatePostRequest.toEntity();
+        postRepository.patch(title, post);
+    }
+
 }
