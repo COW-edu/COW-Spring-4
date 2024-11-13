@@ -21,17 +21,23 @@ public class CommentController {
     @GetMapping("/posts/{postId}/comments")
     public List<Comment> findCommentsByPostId(@PathVariable Long postId) {
         return commentService.findCommentsByPostId(postId);
-    }
+    } // postId로 post 전체의 comment 가져오기
+
+    @GetMapping("/comments/{commentId}")
+    public ResponseEntity<Comment> getCommentById(@PathVariable Long commentId) {
+        Comment comment = commentService.findCommentById(commentId);
+        return ResponseEntity.ok(comment);
+    } // 특정 comment 가져오기(commentId로)
 
     @GetMapping("/comments")
     public Collection<Comment> findAllComments() {
         return commentService.findAllComments();
-    }
+    } // 전체 comment 가져오기
 
     @PutMapping("/comments/{commentId}")
     public Comment updateComment(@PathVariable Long commentId, @RequestBody UpdateCommentRequest updateCommentRequest) {
         return commentService.updateComment(commentId, updateCommentRequest);
-    }
+    } // commentId로 comment 수정하기
 
     @DeleteMapping("/comments/{commentId}")
     public ResponseEntity<Void> deleteCommentById(@PathVariable Long commentId) {

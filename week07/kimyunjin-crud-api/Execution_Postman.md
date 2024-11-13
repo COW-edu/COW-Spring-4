@@ -131,7 +131,7 @@ ___
 * Body: 없음
 ---
 
-4. 특정 Comment 조회 (GET)
+4. 특정 Comment 조회 (GET) 
 * HTTP: GET
 * URL: http://localhost:8080/comments/{commentId}
 * * {commentId} 부분을 조회할 댓글의 ID로 대체

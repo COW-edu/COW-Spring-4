@@ -26,6 +26,10 @@ public class CommentService {
         return commentRepository.findAll();
     }
 
+    public Comment findCommentById(Long commentId) {
+        return commentRepository.findById(commentId);
+    }
+
     public Comment updateComment(Long commentId, UpdateCommentRequest request) {
         Comment comment = commentRepository.findById(commentId);
         comment.updateContent(request.getContent());
@@ -37,7 +41,6 @@ public class CommentService {
         commentRepository.deleteById(commentId);
     }
 
-    // 모든 댓글 삭제 메서드
     public void deleteAllComments() {
         commentRepository.deleteAll();
     }
