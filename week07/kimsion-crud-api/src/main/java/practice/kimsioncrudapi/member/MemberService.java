@@ -14,9 +14,20 @@ public class MemberService {
     memberRepository.save(member);
   }
 
-  public MemberResponse getMember(String name){
-    Member member = memberRepository.findByName(name);
+  public MemberResponse getMember(Integer id){
+    Member member = memberRepository.findById(id);
     return MemberResponse.from(member);
+  }
+
+  public MemberResponse updateInformation(Integer id , CreateMemberRequest createMemberRequest){
+    Member member = memberRepository.findById(id);
+    member.update(createMemberRequest);
+    memberRepository.save(member);
+    return MemberResponse.from(member);
+  }
+
+  public void deleteMember(Integer id) {
+    memberRepository.delete(id);
   }
 
 }
