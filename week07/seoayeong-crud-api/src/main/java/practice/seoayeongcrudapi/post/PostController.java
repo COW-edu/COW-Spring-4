@@ -24,4 +24,9 @@ public class PostController {
     public void updatePost(@RequestBody UpdatePostRequest updatePostemberRequest, @PathVariable("title") String title) {
         postService.updatePost(title, updatePostemberRequest);
     }
+
+    @DeleteMapping("/members/{title}")
+    public void deleteMember(@PathVariable("title") String title) {
+        postService.deletePost(title);
+    }
 }

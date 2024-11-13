@@ -17,6 +17,7 @@ public class PostRepository {
         postRepository.remove(title);
         postRepository.put(post.getTitle(), post);
     }
-
-
+    public void delete(String title) {
+        postRepository.remove(title);
+    }
 }

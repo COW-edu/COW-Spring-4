@@ -22,5 +22,8 @@ public class PostService {
         Post post = updatePostRequest.toEntity();
         postRepository.patch(title, post);
     }
+    public void deletePost(String title) {
+        postRepository.delete(title);
+    }
 
 }
