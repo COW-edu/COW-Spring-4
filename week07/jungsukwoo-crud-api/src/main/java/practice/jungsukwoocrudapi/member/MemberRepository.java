@@ -14,4 +14,16 @@ public class MemberRepository {
     public void save(Member member) {
         memberRepository.put(member.getName(), member);
     }
+
+    public Member readMember(String name){
+        return memberRepository.get(name);
+    }
+
+    public Member updateMember(String name, Member updatedMember) {
+        return memberRepository.put(name, updatedMember);
+    }
+
+    public void delete(String name) {
+        memberRepository.remove(name);
+    }
 }
