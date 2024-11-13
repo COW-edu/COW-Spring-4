@@ -7,9 +7,7 @@ import lombok.Getter;
 public class Member {
 
     private String name;
-
     private String email;
-
     private String password;
 
     @Builder
@@ -17,5 +15,10 @@ public class Member {
         this.name = name;
         this.email = email;
         this.password = password;
+    }
+
+    public void update(String newName, String newEmail) {
+        this.name = newName;
+        this.email = newEmail;
     }
 }

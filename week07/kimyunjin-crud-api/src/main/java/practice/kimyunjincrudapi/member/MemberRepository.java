@@ -17,4 +17,7 @@ public class MemberRepository {
     public Member findByName(String name) {
         return memberRepository.get(name);
     }
+    public void deleteByName(String name) {
+        memberRepository.remove(name);
+    }
 }
