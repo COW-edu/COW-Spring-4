@@ -3,7 +3,7 @@ package com.example.junhyukcrudapi.member;
 import lombok.Builder;
 import lombok.Getter;
 
-@lombok.Getter
+@Getter
 public class Member {
     private String name;
     private String email;
