@@ -1,8 +1,12 @@
-package practice.kimyunjincrudapi.post;
+package practice.kimyunjincrudapi.post.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import practice.kimyunjincrudapi.post.Post;
+import practice.kimyunjincrudapi.post.controller.dto.CreatePostRequest;
+import practice.kimyunjincrudapi.post.controller.dto.UpdatePostRequest;
+import practice.kimyunjincrudapi.post.service.PostService;
 
 import java.util.Collection;
 

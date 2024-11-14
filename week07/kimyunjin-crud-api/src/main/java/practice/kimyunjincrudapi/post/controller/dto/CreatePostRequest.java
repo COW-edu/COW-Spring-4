@@ -1,6 +1,7 @@
-package practice.kimyunjincrudapi.post;
+package practice.kimyunjincrudapi.post.controller.dto;
 
 import lombok.Getter;
+import practice.kimyunjincrudapi.post.Post;
 
 @Getter
 public class CreatePostRequest {

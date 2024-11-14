@@ -1,4 +1,4 @@
-package practice.kimyunjincrudapi.member;
+package practice.kimyunjincrudapi.member.controller.dto;
 
 import lombok.Getter;
 

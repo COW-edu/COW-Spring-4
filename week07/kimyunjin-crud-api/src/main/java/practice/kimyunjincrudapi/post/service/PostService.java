@@ -1,7 +1,11 @@
-package practice.kimyunjincrudapi.post;
+package practice.kimyunjincrudapi.post.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import practice.kimyunjincrudapi.post.Post;
+import practice.kimyunjincrudapi.post.controller.dto.CreatePostRequest;
+import practice.kimyunjincrudapi.post.controller.dto.UpdatePostRequest;
+import practice.kimyunjincrudapi.post.repository.PostRepository;
 
 import java.util.Collection;
 

@@ -1,4 +1,4 @@
-package practice.kimyunjincrudapi.post;
+package practice.kimyunjincrudapi.post.controller.dto;
 
 import lombok.Getter;
 

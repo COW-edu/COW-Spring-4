@@ -1,7 +1,12 @@
-package practice.kimyunjincrudapi.member;
+package practice.kimyunjincrudapi.member.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import practice.kimyunjincrudapi.member.Member;
+import practice.kimyunjincrudapi.member.controller.dto.CreateMemberRequest;
+import practice.kimyunjincrudapi.member.controller.dto.MemberResponse;
+import practice.kimyunjincrudapi.member.controller.dto.UpdateMemberRequest;
+import practice.kimyunjincrudapi.member.repository.MemberRepository;
 
 import java.util.List;
 import java.util.stream.Collectors;

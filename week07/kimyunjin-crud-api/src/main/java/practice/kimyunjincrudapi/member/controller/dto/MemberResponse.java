@@ -1,7 +1,8 @@
-package practice.kimyunjincrudapi.member;
+package practice.kimyunjincrudapi.member.controller.dto;
 
 import lombok.Builder;
 import lombok.Getter;
+import practice.kimyunjincrudapi.member.Member;
 
 @Getter
 public class MemberResponse {

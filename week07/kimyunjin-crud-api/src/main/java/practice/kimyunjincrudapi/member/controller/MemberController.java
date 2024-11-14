@@ -1,18 +1,23 @@
-package practice.kimyunjincrudapi.member;
+package practice.kimyunjincrudapi.member.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import practice.kimyunjincrudapi.member.controller.dto.CreateMemberRequest;
+import practice.kimyunjincrudapi.member.controller.dto.MemberResponse;
+import practice.kimyunjincrudapi.member.controller.dto.UpdateMemberRequest;
+import practice.kimyunjincrudapi.member.service.MemberService;
 
 import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
+@RequestMapping("/members")
 public class MemberController {
 
     private final MemberService memberService;
 
-    @PostMapping("/members")
+    @PostMapping()
     public ResponseEntity<CreateMemberRequest> signUp(@RequestBody CreateMemberRequest createMemberRequest) {
         memberService.signUp(createMemberRequest);
         return ResponseEntity.ok(createMemberRequest);
@@ -45,6 +50,7 @@ public class MemberController {
     @DeleteMapping("/members")
     public ResponseEntity<Void> deleteAllMembers() {
         memberService.deleteAllMembers();
+
         return ResponseEntity.noContent().build();
     }
 }

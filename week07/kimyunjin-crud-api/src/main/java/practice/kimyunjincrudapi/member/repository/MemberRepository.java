@@ -1,6 +1,7 @@
-package practice.kimyunjincrudapi.member;
+package practice.kimyunjincrudapi.member.repository;
 
 import org.springframework.stereotype.Repository;
+import practice.kimyunjincrudapi.member.Member;
 
 import java.util.Collection;
 import java.util.Map;

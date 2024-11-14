@@ -1,6 +1,7 @@
-package practice.kimyunjincrudapi.post;
+package practice.kimyunjincrudapi.post.repository;
 
 import org.springframework.stereotype.Repository;
+import practice.kimyunjincrudapi.post.Post;
 
 import java.util.Collection;
 import java.util.Map;
