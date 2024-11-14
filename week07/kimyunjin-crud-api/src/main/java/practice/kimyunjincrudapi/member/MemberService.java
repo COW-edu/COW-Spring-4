@@ -3,6 +3,9 @@ package practice.kimyunjincrudapi.member;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 @RequiredArgsConstructor
 public class MemberService {
@@ -10,8 +13,15 @@ public class MemberService {
     private final MemberRepository memberRepository;
 
     public void signUp(CreateMemberRequest createMemberRequest) {
-        Member member = createMemberRequest.toEntity();
+        Long id = memberRepository.generateId();
+        Member member = createMemberRequest.toEntity(id);
         memberRepository.save(member);
+    }
+
+    public List<MemberResponse> getAllMembers() {
+        return memberRepository.findAll().stream()
+                .map(MemberResponse::from)
+                .collect(Collectors.toList());
     }
 
     public MemberResponse getMember(String name) {
@@ -26,7 +36,10 @@ public class MemberService {
     }
 
     public void deleteMember(String name) {
-        Member member = memberRepository.findByName(name);
         memberRepository.deleteByName(name);
+    }
+
+    public void deleteAllMembers() {
+        memberRepository.deleteAll();
     }
 }

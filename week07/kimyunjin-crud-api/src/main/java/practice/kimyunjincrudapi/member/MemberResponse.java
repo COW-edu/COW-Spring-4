@@ -6,24 +6,22 @@ import lombok.Getter;
 @Getter
 public class MemberResponse {
 
-    private String userName;
-
+    private Long id;
+    private String username;
     private String email;
 
-    private String password;
-
     @Builder
-    private MemberResponse(String userName, String email, String password) {
-        this.userName = userName;
+    private MemberResponse(Long id, String username, String email) {
+        this.id = id;
+        this.username = username;
         this.email = email;
-        this.password = password;
     }
 
     public static MemberResponse from(Member member) {
         return MemberResponse.builder()
-                .userName(member.getName())
+                .id(member.getId())
+                .username(member.getName())
                 .email(member.getEmail())
-                .password(member.getPassword())
                 .build();
     }
 }

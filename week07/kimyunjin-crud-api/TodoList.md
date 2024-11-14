@@ -1,3 +1,5 @@
+## Todo List
+
 ## User 엔터티 관련 API
 
 ---
@@ -6,42 +8,95 @@
 
 * HTTP: POST
 * URL: http://localhost:8080/members
-* Body
+* RequestBody
 ````
-  {
-  "username": "john_doe_updated",
-  "email": "new_email@example.com"
+{
+  "username": "john_doe",
+  "email": "john@example.com",
+  "password": "password123"
+}
+````
+* ResponseBody
+````
+{
+    "username": "john_doe",
+    "email": "john@example.com",
+    "password": "password123"
 }
 ````
 ---
 
-2. 사용자 정보 조회 (GET)
+2. 전체 사용자 정보 조회 (GET)
+* HTTP: GET
+* URL: http://localhost:8080/members
+* RequestBody: none
+* ResponseBody
+
+````
+[
+    {
+        "id": 1,
+        "username": "john_doe",
+        "email": "john@example.com"
+    },
+    {
+        "id": 2,
+        "username": "kimyunjin",
+        "email": "yunjinkim25@mju.ac.kr"
+    }
+]
+````
+
+---
+
+3. 특정 사용자 정보 조회 (GET)
 
 * HTTP: GET
 * URL: http://localhost:8080/members/{name}
 * * {name}을 사용자의 username으로 대체
-* Body: none
+* RequestBody: none
+* ResponseBody
+````
+{
+  "id": 1,
+  "username": "john_doe",
+  "email": "john@example.com"
+}
+````
 ---
 
 3. 사용자 정보 업데이트 (Update Member)
 * HTTP: PUT
 * URL: http://localhost:8080/members/{name}
-* Body
+* RequestBody
 ````
 {
-  "username": "new_kimyunjin",
-  "email": "new_email@example.com",
-  "password": "new_password123"
+  "username": "john_doe_updated",
+  "email": "new_email@example.com"
+}
+````
+* ResponseBody
+````
+{
+    "id": 1,
+    "username": "john_doe_updated",
+    "email": "new_email@example.com"
 }
 ````
 ---
+4. 전체 사용자 삭제 (DELETE)
+* HTTP: DELETE
+* URL: http://localhost:8080/members
+* RequestBody: none
+* ResponseBody: 성공적으로 삭제되면 응답이 204로
+---
 
-4. 사용자 삭제 (DELETE)
+5. 특정 사용자 삭제 (DELETE)
 * HTTP: DELETE
 * URL: http://localhost:8080/members/{name}
 * * {name}을 사용자의 username으로 대체
-* Body: none, 성공적으로 삭제되면 응답이 204로
-
+* RequestBody: none
+* ResponseBody: 성공적으로 삭제되면 응답이 204로
 ----
 
 ## Post 엔터티 관련 API
@@ -49,10 +104,9 @@
 ---
 
 1. 게시글 작성 (POST)
-> 게시글이 생성될 때 마다 자동으로 id가 생성
 * HTTP: POST
 * URL: http://localhost:8080/posts
-* Body
+* RequestBody
 ````
 {
   "title": "My First Post",
@@ -60,47 +114,96 @@
   "userId": 1
 }
 ````
+* ResponseBody
+> 게시글이 생성될 때 마다 자동으로 id가 생성
+````
+{
+    "id": 1,
+    "title": "My First Post",
+    "content": "This is the content of the post.",
+    "userId": 1
+}
+````
 ---
 
-2. 게시글 목록 조회 (GET)
+2. 전체 게시글 목록 조회 (GET)
 * HTTP: GET
 * URL: http://localhost:8080/posts
-* Body: 없음
+* ResponseBody: none
+* RequestBody
+````
+[
+    {
+        "id": 1,
+        "title": "My First Post",
+        "content": "This is the content of the post.",
+        "userId": 1
+    },
+    {
+        "id": 2,
+        "title": "My 1st Post",
+        "content": "This is the content of the post.",
+        "userId": 2
+    }
+]
+````
 ---
 
 3. 특정 게시글 조회 (GET)
 * HTTP: GET
 * URL: http://localhost:8080/posts/{id}
 * * {id} 부분을 조회할 게시글의 ID로 대체
+* RequestBody: none
+* ResponseBody
+````
+{
+    "id": 2,
+    "title": "My 1st Post",
+    "content": "This is the content of the post.",
+    "userId": 2
+}
+````
 ---
 
 4. 게시글 수정 (PUT)
 * HTTP: PUT
 * URL: http://localhost:8080/posts/{id}
 * * {id} 부분을 수정할 게시글의 ID로 대체
-* Body
+* RequestBody
 ````
 {
   "title": "Updated Title",
   "content": "Updated content"
 }
 ````
+* ResponseBody
+````
+{
+    "id": 2,
+    "title": "Updated Title",
+    "content": "Updated content",
+    "userId": 2
+}
+````
 ---
-5. 게시글 삭제 (Delete)
+
+5. 전체 게시글 삭제 (DELETE)
+* HTTP: DELETE
+* URL: http://localhost:8080/posts
+* RequestBody: none
+* ResponseBody: none, 성공적으로 삭제되면 응답이 204로
+---
+
+6. 게시글 삭제 (Delete)
 * HTTP: DELETE
 * URL: http://localhost:8080/posts/{id}
 * * {id} 부분을 삭제할 게시글의 ID로 대체
-* Body: 없음
----
-
-6. 전체 게시글 삭제 (DELETE)
-* HTTP: DELETE
-* URL: http://localhost:8080/posts
-* Body: 없음, 성공적으로 삭제되면 응답이 204로
-
+* RequestBody: none
+* ResponseBody: none, 성공적으로 삭제되면 응답이 204로
 ---
 
 ## Comment 엔터티 관련 API
+* 추가 수정 필요
 
 ___
 

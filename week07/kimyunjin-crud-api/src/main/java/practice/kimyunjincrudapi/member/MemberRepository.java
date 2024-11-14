@@ -1,23 +1,45 @@
 package practice.kimyunjincrudapi.member;
 
+import org.springframework.stereotype.Repository;
+
+import java.util.Collection;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-import org.springframework.stereotype.Repository;
+import java.util.concurrent.atomic.AtomicLong;
 
 @Repository
 public class MemberRepository {
 
-    //name은 unique해야 한다.
-    private final Map<String, Member> memberRepository = new ConcurrentHashMap<>();
+    private final Map<Long, Member> memberRepository = new ConcurrentHashMap<>();
+    private final AtomicLong idGenerator = new AtomicLong(1);
+
+    public Long generateId() {
+        return idGenerator.getAndIncrement();
+    }
 
     public void save(Member member) {
-        memberRepository.put(member.getName(), member);
+        memberRepository.put(member.getId(), member);
+    }
+
+    public Collection<Member> findAll() {
+        return memberRepository.values();
     }
 
     public Member findByName(String name) {
-        return memberRepository.get(name);
+        return memberRepository.values().stream()
+                .filter(member -> member.getName().equals(name))
+                .findFirst()
+                .orElse(null);
     }
+
     public void deleteByName(String name) {
-        memberRepository.remove(name);
+        Member member = findByName(name);
+        if (member != null) {
+            memberRepository.remove(member.getId());
+        }
+    }
+
+    public void deleteAll() {
+        memberRepository.clear();
     }
 }
