@@ -1,17 +1,18 @@
-package practice.banghyunwoocrudapi.member;
+package practice.banghyunwoocrudapi.member.controller.dto.response;
 
 import lombok.Builder;
 import lombok.Getter;
+import practice.banghyunwoocrudapi.member.entity.Member;
 
 @Getter
 public class MemberResponse {
-    private String id;
+    private Long id;
     private String username;
     private String email;
     private String password;
 
     @Builder
-    public MemberResponse(String id, String username, String email, String password) {
+    public MemberResponse(Long id, String username, String email, String password) {
         this.id = id;
         this.username = username;
         this.email = email;

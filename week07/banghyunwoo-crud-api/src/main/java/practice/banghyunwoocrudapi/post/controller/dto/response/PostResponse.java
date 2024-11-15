@@ -1,17 +1,18 @@
-package practice.banghyunwoocrudapi.post;
+package practice.banghyunwoocrudapi.post.controller.dto.response;
 
 import lombok.Builder;
 import lombok.Getter;
+import practice.banghyunwoocrudapi.post.entity.Post;
 
 @Getter
 public class PostResponse {
-    private int id;
+    private Long id;
     private String title;
     private String content;
-    private int userId;
+    private Long userId;
 
     @Builder
-    public PostResponse(int id, String title, String content, int userId) {
+    public PostResponse(Long id, String title, String content, Long userId) {
         this.id = id;
         this.title = title;
         this.content = content;
@@ -23,7 +24,7 @@ public class PostResponse {
                 .id(post.getId())
                 .title(post.getTitle())
                 .content(post.getContent())
-                .userId(post.getUserId())
+                .userId(post.getMember().getId())
                 .build();
     }
 }
