@@ -8,7 +8,7 @@ import java.util.Optional;
 //@Repository
 public interface PostRepository extends JpaRepository<Post, Long> {
     @Override
-    Optional<Post> findById(Long Id);
+    Optional<Post> findById(Long id);
     //    private final Map<Integer, Post> boardRepository = new ConcurrentHashMap<>();
 //    private int id;
 //
