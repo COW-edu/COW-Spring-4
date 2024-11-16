@@ -28,9 +28,9 @@ public class CommentService {
 
     public void create(Long postId, CreateCommentRequest createCommentRequest) {
         Member member = memberJpaRepository.findById(createCommentRequest.getUserId())
-                .orElseThrow(()-> new IndexOutOfBoundsException("존재하지 않는 userID입니다."));
+                .orElseThrow(() -> new IndexOutOfBoundsException("존재하지 않는 userID입니다."));
         Post post = postRepository.findById(postId)
-                .orElseThrow(()->new IllegalArgumentException("존재하지 않는 ID입니다."));
+                .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 ID입니다."));
         Comment comment = createCommentRequest.toEntity(post, member);
         commentRepository.save(comment);
     }
@@ -47,7 +47,13 @@ public class CommentService {
 
     public void update(Long id, UpdateCommentRequest updateCommentRequest) {
         Comment comment = commentRepository.findById(id)
-                .orElseThrow(()-> new IndexOutOfBoundsException("해당하는 ID가 없습니다."));
+                .orElseThrow(() -> new IndexOutOfBoundsException("해당하는 ID가 없습니다."));
         comment.update(updateCommentRequest);
+    }
+
+    public void delete(Long id) {
+        Comment comment = commentRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("해당하는 댓글이 없습니다."));
+        commentRepository.delete(comment);
     }
 }
