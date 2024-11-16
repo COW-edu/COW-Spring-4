@@ -6,6 +6,7 @@ import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import practice.banghyunwoocrudapi.comment.controller.dto.request.UpdateCommentRequest;
 import practice.banghyunwoocrudapi.member.entity.Member;
 import practice.banghyunwoocrudapi.post.entity.Post;
 
@@ -23,14 +24,19 @@ public class Comment {
     @JoinColumn(name = "post_id")
     private Post post;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")
     private Member member;
+
 
     @Builder
     public Comment(final String content, final Post post, final Member member) {
         this.content = content;
         this.post = post;
         this.member = member;
+    }
+
+    public void update(UpdateCommentRequest updateCommentRequest) {
+        this.content = updateCommentRequest.getContent();
     }
 }

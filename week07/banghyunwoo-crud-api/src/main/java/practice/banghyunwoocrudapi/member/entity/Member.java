@@ -5,6 +5,7 @@ import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import practice.banghyunwoocrudapi.comment.entity.Comment;
 import practice.banghyunwoocrudapi.member.controller.dto.request.UpdateMemberRequest;
 import practice.banghyunwoocrudapi.post.entity.Post;
 
@@ -28,6 +29,9 @@ public class Member {
 
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
     List<Post> posts = new ArrayList<>();
+
+    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
+    List<Comment> comments = new ArrayList<>();
 
     @Builder
     public Member(String name, String email, String password) {

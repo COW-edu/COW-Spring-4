@@ -13,8 +13,8 @@ public class CreateCommentRequest {
     public Comment toEntity(Post post, Member member){
         return Comment.builder()
                 .content(content)
-                .post(post)
                 .member(member)
+                .post(post)
                 .build();
     }
 }

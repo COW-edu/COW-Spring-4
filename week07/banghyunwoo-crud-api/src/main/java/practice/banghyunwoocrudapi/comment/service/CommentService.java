@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import practice.banghyunwoocrudapi.comment.controller.dto.request.CreateCommentRequest;
+import practice.banghyunwoocrudapi.comment.controller.dto.request.UpdateCommentRequest;
 import practice.banghyunwoocrudapi.comment.controller.dto.response.CommentResponse;
 import practice.banghyunwoocrudapi.comment.entity.Comment;
 import practice.banghyunwoocrudapi.comment.repository.CommentRepository;
@@ -14,6 +15,7 @@ import practice.banghyunwoocrudapi.post.repository.PostRepository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -24,12 +26,12 @@ public class CommentService {
     private final PostRepository postRepository;
     private final MemberJpaRepository memberJpaRepository;
 
-    public void create(Long id, CreateCommentRequest createCommentRequest, Long userId) {
-        Member member = memberJpaRepository.findById(userId).
-                orElseThrow(()-> new IllegalArgumentException("존재하지 않는 ID입니다."));
-        Post post = postRepository.findById(id)
+    public void create(Long postId, CreateCommentRequest createCommentRequest) {
+        Member member = memberJpaRepository.findById(createCommentRequest.getUserId())
+                .orElseThrow(()-> new IndexOutOfBoundsException("존재하지 않는 userID입니다."));
+        Post post = postRepository.findById(postId)
                 .orElseThrow(()->new IllegalArgumentException("존재하지 않는 ID입니다."));
-        Comment comment = createCommentRequest.toEntity(post,member);
+        Comment comment = createCommentRequest.toEntity(post, member);
         commentRepository.save(comment);
     }
 
@@ -43,8 +45,9 @@ public class CommentService {
         return commentResponses;
     }
 
-
-//    public CommentResponse getComment(Long id) {
-//        commentRepository.findById()
-//    }
+    public void update(Long id, UpdateCommentRequest updateCommentRequest) {
+        Comment comment = commentRepository.findById(id)
+                .orElseThrow(()-> new IndexOutOfBoundsException("해당하는 ID가 없습니다."));
+        comment.update(updateCommentRequest);
+    }
 }
