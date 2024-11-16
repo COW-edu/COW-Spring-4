@@ -23,7 +23,7 @@ public class PostService {
     private final PostRepository postRepository;
 
     public void createPost(CreatePostRequest createPostRequest) {
-        Member member = memberJpaRepository.findById(createPostRequest.getId())
+        Member member = memberJpaRepository.findById(createPostRequest.getUserId())
                 .orElseThrow(() -> new IllegalArgumentException("해당 이름으로 member를 찾을 수 없습니다."));
         Post post = createPostRequest.toEntity(member);
         postRepository.save(post);

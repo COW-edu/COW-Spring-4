@@ -6,7 +6,7 @@ import practice.banghyunwoocrudapi.post.entity.Post;
 
 @Getter
 public class CreatePostRequest {
-    private Long id;
+    private Long userId;
     private String title;
     private String content;
 

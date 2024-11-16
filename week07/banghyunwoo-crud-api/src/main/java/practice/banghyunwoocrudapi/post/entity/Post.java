@@ -2,8 +2,12 @@ package practice.banghyunwoocrudapi.post.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import practice.banghyunwoocrudapi.comment.entity.Comment;
 import practice.banghyunwoocrudapi.member.entity.Member;
 import practice.banghyunwoocrudapi.post.controller.dto.request.UpdatePostRequest;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -19,6 +23,9 @@ public class Post {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")
     private Member member;
+
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Comment> comments = new ArrayList<>();
 
     @Builder
     public Post(final String title, final String content, final Member member) {
