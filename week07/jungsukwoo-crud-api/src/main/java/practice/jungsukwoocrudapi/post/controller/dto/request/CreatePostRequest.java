@@ -1,6 +1,7 @@
-package practice.jungsukwoocrudapi.post;
+package practice.jungsukwoocrudapi.post.controller.dto.request;
 
 import lombok.Getter;
+import practice.jungsukwoocrudapi.post.entity.Post;
 
 @Getter
 public class CreatePostRequest {

@@ -1,4 +1,4 @@
-package practice.jungsukwoocrudapi.post;
+package practice.jungsukwoocrudapi.post.controller.dto.response;
 
 import lombok.Getter;
 import lombok.AllArgsConstructor;
