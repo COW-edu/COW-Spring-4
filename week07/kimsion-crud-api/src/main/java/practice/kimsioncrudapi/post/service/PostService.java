@@ -29,7 +29,9 @@ public class PostService {
   @Transactional(readOnly = true)
   public List<PostResponse> getPosts() {
     List<Post> posts = postJpaRepository.findAll();
-    return posts.stream()
+
+    return posts
+        .stream()
         .map(PostResponse::from)
         .toList();
   }

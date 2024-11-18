@@ -1,5 +1,6 @@
 package practice.kimsioncrudapi.member.entity;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -31,7 +32,7 @@ public class Member {
 
   private String password;
 
-  @OneToMany(mappedBy = "member", orphanRemoval = true)
+  @OneToMany(mappedBy = "member",cascade = {CascadeType.PERSIST, CascadeType.REMOVE}, orphanRemoval = true)
   List<Post> posts = new ArrayList<>();
 
   @Builder
