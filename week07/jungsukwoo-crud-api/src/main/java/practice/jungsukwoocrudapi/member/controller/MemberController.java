@@ -3,6 +3,7 @@ package practice.jungsukwoocrudapi.member.controller;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import practice.jungsukwoocrudapi.member.controller.dto.request.CreateMemberRequest;
+import practice.jungsukwoocrudapi.member.controller.dto.request.UpdateMemberRequest;
 import practice.jungsukwoocrudapi.member.controller.dto.response.MemberResponse;
 import practice.jungsukwoocrudapi.member.service.MemberService;
 
@@ -23,19 +24,14 @@ public class MemberController {
         return memberService.getMemberById(id);
     }
 
-//    @PutMapping("/members/{name}")
-//    public void updateMember(@PathVariable String name, @RequestBody UpdateMemberRequest updatedMember) {
-//        memberService.updateMember(name, updatedMember);
-//    }
+    @PutMapping
+    public MemberResponse updateMemberById(@PathVariable("id") Long id, @RequestBody UpdateMemberRequest updateMemberRequest){
+        return memberService.updateMemberById(id, updateMemberRequest);
+    }
 
     @DeleteMapping("{id}")
-    public void deleteMember(@PathVariable("id") Long id) {
-        memberService.deleteMember(id);
+    public void deleteMemberById(@PathVariable("id") Long id) {
+        memberService.deleteMemberById(id);
     }
-//
-//    @ExceptionHandler(MemberNotFoundException.class)
-//    public ResponseEntity<String> handleMemberNotFoundException(MemberNotFoundException ex) {
-//        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
-//    }
 }
 
