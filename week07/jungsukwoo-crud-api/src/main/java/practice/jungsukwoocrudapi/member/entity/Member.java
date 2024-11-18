@@ -44,4 +44,15 @@ public class Member {
                 .build();
     }
 
+    public void updateInfo(String name, String email, String password){
+        if (name != null && !name.isEmpty()) {
+            this.name = name;
+        }
+        if (email != null && !email.isEmpty()) {
+            this.email = email;
+        }
+        if (password != null && !password.isEmpty()) {
+            this.password = password;
+        }
+    }
 }
