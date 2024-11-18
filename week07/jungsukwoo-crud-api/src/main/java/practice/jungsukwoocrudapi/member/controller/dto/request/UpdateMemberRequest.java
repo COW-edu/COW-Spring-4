@@ -1,11 +1,13 @@
-package practice.jungsukwoocrudapi.member;
+package practice.jungsukwoocrudapi.member.controller.dto.request;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Getter
-@NoArgsConstructor
+@Setter
 public class UpdateMemberRequest {
     private String username;
     private String email;
+    private String password;
 }

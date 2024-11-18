@@ -1,4 +1,4 @@
-package practice.jungsukwoocrudapi.member.exception;
+package practice.jungsukwoocrudapi.exception;
 
 public class MemberNotFoundException extends RuntimeException {
     public MemberNotFoundException(String message) {

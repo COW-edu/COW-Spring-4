@@ -1,11 +1,11 @@
-package practice.jungsukwoocrudapi.member;
+package practice.jungsukwoocrudapi.post;
 
 import lombok.Getter;
 import lombok.AllArgsConstructor;
 
 @Getter
 @AllArgsConstructor
-public class MemberResponse {
+public class PostResponse {
     private String name;
     private String email;
 }
