@@ -13,6 +13,7 @@ import practice.banghyunwoocrudapi.post.repository.PostRepository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -30,12 +31,9 @@ public class PostService {
     }
     @Transactional(readOnly = true)
     public List<PostResponse> getAllPost() {
-        List<PostResponse> postResponses = new ArrayList<>();
-        List<Post> posts = postRepository.findAll();
-        for (Post post : posts) {
-            postResponses.add(PostResponse.from(post));
-        }
-        return postResponses;
+        return postRepository.findAll().stream()
+                .map(post -> PostResponse.from(post))
+                .collect(Collectors.toList());
     }
 
     @Transactional(readOnly = true)

@@ -16,6 +16,7 @@ import practice.banghyunwoocrudapi.post.repository.PostRepository;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -37,12 +38,9 @@ public class CommentService {
 
     @Transactional(readOnly = true)
     public List<CommentResponse> getComments(Long id) {
-        List<CommentResponse> commentResponses = new ArrayList<>();
-        List<Comment> comments = commentRepository.findByPostId(id);
-        for (Comment comment : comments) {
-            commentResponses.add(CommentResponse.from(comment));
-        }
-        return commentResponses;
+        return commentRepository.findByPostId(id).stream()
+                .map(comment -> CommentResponse.from(comment))
+                .collect(Collectors.toList());
     }
 
     public void update(Long id, UpdateCommentRequest updateCommentRequest) {
