@@ -11,6 +11,7 @@ import practice.jungsukwoocrudapi.member.entity.Member;
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Post {
+
     @Id
     @Column(name = "post_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
