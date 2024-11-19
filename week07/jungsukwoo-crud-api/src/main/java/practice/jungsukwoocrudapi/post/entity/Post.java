@@ -33,7 +33,7 @@ public class Post {
 
     public static Post from(final String title, final String content, final Member member){
         return Post.builder()
-            .title
+            .title(title)
             .content(content)
             .member(member)
             .build();
