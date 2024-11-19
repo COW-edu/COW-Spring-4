@@ -26,18 +26,23 @@ public class PostController {
         return postService.getAllPost();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/posts/{id}")
     public PostResponse getPost(@PathVariable Long id) {
         return postService.getPost(id);
     }
 
-    @PutMapping("/{id}")
+    @GetMapping("/users/{userId}/posts")
+    public List<PostResponse> getUserPost(@PathVariable Long userId){
+        return postService.getByUserID(userId);
+    }
+
+    @PutMapping("/posts/{id}")
     public void updatePost(@PathVariable Long id,
                            @RequestBody UpdatePostRequest updatePostRequest) {
         postService.update(id, updatePostRequest);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/posts/{id}")
     public void deletePost(@PathVariable Long id) {
         postService.delete(id);
     }

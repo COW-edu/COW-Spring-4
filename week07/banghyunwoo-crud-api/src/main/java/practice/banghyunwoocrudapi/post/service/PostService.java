@@ -52,4 +52,10 @@ public class PostService {
         Post deletePost = postRepository.getReferenceById(id);
         postRepository.delete(deletePost);
     }
+
+    public List<PostResponse> getByUserID(Long userId) {
+        return postRepository.findByMemberId(userId).stream()
+                .map(post -> PostResponse.from(post))
+                .collect(Collectors.toList());
+    }
 }
