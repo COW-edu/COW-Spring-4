@@ -54,4 +54,10 @@ public class CommentService {
                 .orElseThrow(() -> new IllegalArgumentException("해당하는 댓글이 없습니다."));
         commentRepository.delete(comment);
     }
+
+    public List<CommentResponse> getByUserId(Long userId) {
+        return commentRepository.findByMemberId(userId).stream()
+                .map(comment -> CommentResponse.from(comment))
+                .collect(Collectors.toList());
+    }
 }

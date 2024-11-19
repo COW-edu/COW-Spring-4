@@ -13,28 +13,33 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/comments")
+
 public class CommentController {
     private final CommentService commentService;
 
-    @PostMapping("/{postId}")
+    @PostMapping("/comments/{postId}")
     public void create(@PathVariable Long postId,
                        @RequestBody CreateCommentRequest createCommentRequest){
         commentService.create(postId,createCommentRequest);
     }
 
-    @GetMapping("/{postId}")
+    @GetMapping("/comments/{postId}")
     public List<CommentResponse> getComments(@PathVariable Long postId){
         return commentService.getComments(postId);
     }
 
-    @PutMapping("/{id}")
+    @GetMapping("/users/{userId}/comments")
+    public List<CommentResponse> getByUserId(@PathVariable Long userId){
+        return commentService.getByUserId(userId);
+    }
+
+    @PutMapping("/comments/{id}")
     public void getComment(@PathVariable Long id,
                            @RequestBody UpdateCommentRequest updateCommentRequest){
         commentService.update(id, updateCommentRequest);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/comments/{id}")
     public void deleteComment(@PathVariable Long id){
         commentService.delete(id);
     }
