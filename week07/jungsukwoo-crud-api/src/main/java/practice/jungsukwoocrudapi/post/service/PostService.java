@@ -1,6 +1,7 @@
 package practice.jungsukwoocrudapi.post.service;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import practice.jungsukwoocrudapi.member.controller.dto.request.CreateMemberRequest;
@@ -8,6 +9,7 @@ import practice.jungsukwoocrudapi.member.controller.dto.response.MemberResponse;
 import practice.jungsukwoocrudapi.member.entity.Member;
 import practice.jungsukwoocrudapi.member.repository.MemberRepository;
 import practice.jungsukwoocrudapi.post.controller.dto.request.CreatePostRequest;
+import practice.jungsukwoocrudapi.post.controller.dto.request.UpdatePostRequest;
 import practice.jungsukwoocrudapi.post.controller.dto.response.PostResponse;
 import practice.jungsukwoocrudapi.post.entity.Post;
 import practice.jungsukwoocrudapi.post.repository.PostRepository;
@@ -43,6 +45,13 @@ public class PostService {
         Post post = postRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Post를 찾을 수 없습니다."));
         return PostResponse.from(post);
+    }
+
+    public void updatePostById(final Long id, UpdatePostRequest updatePostRequest) {
+        Post post = postRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Post를 찾을 수 없습니다."));
+        post.updatePost(updatePostRequest.getTitle(), updatePostRequest.getContent());
+        postRepository.save(post);
     }
 
 
