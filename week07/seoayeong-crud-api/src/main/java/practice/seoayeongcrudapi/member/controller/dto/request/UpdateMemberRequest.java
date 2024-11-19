@@ -1,6 +1,7 @@
-package practice.seoayeongcrudapi.member;
+package practice.seoayeongcrudapi.member.controller.dto.request;
 
 import lombok.Getter;
+import practice.seoayeongcrudapi.member.entity.Member;
 
 
 @Getter

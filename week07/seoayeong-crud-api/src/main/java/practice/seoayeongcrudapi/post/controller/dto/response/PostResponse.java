@@ -1,7 +1,8 @@
-package practice.seoayeongcrudapi.post;
+package practice.seoayeongcrudapi.post.controller.dto.response;
 
 import lombok.Builder;
 import lombok.Getter;
+import practice.seoayeongcrudapi.post.entity.Post;
 
 @Getter
 public class PostResponse {
@@ -22,7 +23,6 @@ public class PostResponse {
         return PostResponse.builder()
                 .title(post.getTitle())
                 .content(post.getContent())
-                .userId(post.getUserId())
                 .build();
     }
 }

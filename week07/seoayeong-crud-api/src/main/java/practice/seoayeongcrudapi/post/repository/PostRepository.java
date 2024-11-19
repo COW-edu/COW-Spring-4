@@ -1,5 +1,7 @@
-package practice.seoayeongcrudapi.post;
+package practice.seoayeongcrudapi.post.repository;
 import org.springframework.stereotype.Repository;
+import practice.seoayeongcrudapi.post.entity.Post;
+
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 

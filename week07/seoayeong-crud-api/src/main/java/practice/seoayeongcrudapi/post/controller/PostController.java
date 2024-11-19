@@ -1,8 +1,11 @@
-package practice.seoayeongcrudapi.post;
+package practice.seoayeongcrudapi.post.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import practice.seoayeongcrudapi.member.UpdateMemberRequest;
+import practice.seoayeongcrudapi.post.controller.dto.request.CreatePostRequest;
+import practice.seoayeongcrudapi.post.controller.dto.response.PostResponse;
+import practice.seoayeongcrudapi.post.service.PostService;
+import practice.seoayeongcrudapi.post.controller.dto.request.UpdatePostRequest;
 
 @RestController
 @RequiredArgsConstructor
@@ -25,7 +28,7 @@ public class PostController {
         postService.updatePost(title, updatePostemberRequest);
     }
 
-    @DeleteMapping("/members/{title}")
+    @DeleteMapping("/posts/{title}")
     public void deleteMember(@PathVariable("title") String title) {
         postService.deletePost(title);
     }

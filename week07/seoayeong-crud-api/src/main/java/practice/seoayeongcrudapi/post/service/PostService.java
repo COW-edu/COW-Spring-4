@@ -1,9 +1,12 @@
-package practice.seoayeongcrudapi.post;
+package practice.seoayeongcrudapi.post.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import practice.seoayeongcrudapi.member.Member;
-import practice.seoayeongcrudapi.member.UpdateMemberRequest;
+import practice.seoayeongcrudapi.post.controller.dto.request.UpdatePostRequest;
+import practice.seoayeongcrudapi.post.controller.dto.request.CreatePostRequest;
+import practice.seoayeongcrudapi.post.controller.dto.response.PostResponse;
+import practice.seoayeongcrudapi.post.entity.Post;
+import practice.seoayeongcrudapi.post.repository.PostRepository;
 
 @Service
 @RequiredArgsConstructor

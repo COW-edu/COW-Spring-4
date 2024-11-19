@@ -1,7 +1,8 @@
-package practice.seoayeongcrudapi.member;
+package practice.seoayeongcrudapi.member.controller.dto.response;
 
 import lombok.Builder;
 import lombok.Getter;
+import practice.seoayeongcrudapi.member.entity.Member;
 
 @Getter
 public class MemberResponse {
