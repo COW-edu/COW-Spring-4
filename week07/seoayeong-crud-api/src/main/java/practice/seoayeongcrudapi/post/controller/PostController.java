@@ -18,9 +18,9 @@ public class PostController {
         postService.uploadPost(createPostRequest);
     }
 
-    @GetMapping("/posts/{title}")
-    public PostResponse getPost(@PathVariable("title") String title) {
-        return postService.getPost(title);
+    @GetMapping("/posts/{id}")
+    public PostResponse getPost(@PathVariable("id") Long id) {
+        return postService.getPost(id);
     }
 
     @PutMapping("/posts/{title}")
