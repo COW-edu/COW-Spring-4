@@ -11,17 +11,16 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/posts")
 public class PostController {
 
     private final PostService postService;
 
-    @PostMapping
+    @PostMapping("/posts")
     public void createPost(@RequestBody CreatePostRequest createPostRequest) {
         postService.createPost(createPostRequest);
     }
 
-    @GetMapping
+    @GetMapping("/posts")
     public List<PostResponse> getAllPost() {
         return postService.getAllPost();
     }
