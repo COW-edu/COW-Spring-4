@@ -1,10 +1,16 @@
 package practice.jungsukwoocrudapi.comment.entity;
 
 import jakarta.persistence.*;
+import lombok.AccessLevel;
 import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import practice.jungsukwoocrudapi.member.entity.Member;
 import practice.jungsukwoocrudapi.post.entity.Post;
 
+@Getter
+@Entity
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Comment {
 
     @Id
