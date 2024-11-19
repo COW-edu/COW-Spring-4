@@ -7,6 +7,8 @@ import practice.seoayeongcrudapi.post.controller.dto.response.PostResponse;
 import practice.seoayeongcrudapi.post.service.PostService;
 import practice.seoayeongcrudapi.post.controller.dto.request.UpdatePostRequest;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
 public class PostController {
@@ -21,6 +23,10 @@ public class PostController {
     @GetMapping("/posts/{id}")
     public PostResponse getPost(@PathVariable("id") Long id) {
         return postService.getPost(id);
+    }
+    @GetMapping("/posts")
+    public List<PostResponse> getPost() {
+        return postService.getPosts();
     }
 
     @PutMapping("/posts/{title}")

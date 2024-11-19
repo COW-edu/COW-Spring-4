@@ -11,6 +11,9 @@ import practice.seoayeongcrudapi.post.controller.dto.response.PostResponse;
 import practice.seoayeongcrudapi.post.entity.Post;
 import practice.seoayeongcrudapi.post.repository.PostRepository;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class PostService {
@@ -25,6 +28,15 @@ public class PostService {
         Post post = postRepository.findById(id)
                 .orElseThrow(()->new IllegalArgumentException("Post를 찾을 수 없습니다."));
         return PostResponse.from(post);
+    }
+
+    public List<PostResponse> getPosts() {
+        List<Post> posts = postRepository.findAll();
+        List<PostResponse> postResponses = new ArrayList<>();
+        for (Post post : posts) {
+            postResponses.add(PostResponse.from(post));
+        }
+        return postResponses;
     }
     public void updatePost(String title, UpdatePostRequest updatePostRequest) {
         Post post = updatePostRequest.toEntity();
