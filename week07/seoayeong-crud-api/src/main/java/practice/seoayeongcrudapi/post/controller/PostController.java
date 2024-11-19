@@ -34,8 +34,8 @@ public class PostController {
         postService.updatePost(id, updatePostRequest);
     }
 
-    @DeleteMapping("/posts/{title}")
-    public void deleteMember(@PathVariable("title") String title) {
-        postService.deletePost(title);
+    @DeleteMapping("/posts/{id}")
+    public void deleteMember(@PathVariable("id") Long id) {
+        postService.deletePost(id);
     }
 }

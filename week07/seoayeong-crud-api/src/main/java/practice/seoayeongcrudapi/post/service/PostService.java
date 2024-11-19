@@ -40,11 +40,13 @@ public class PostService {
     }
     public void updatePost(Long id, UpdatePostRequest updatePostRequest) {
         Post post = postRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Post를 찾을 수 없습니다. ID: " + id));
+                .orElseThrow(() -> new IllegalArgumentException(id + "으로 Post를 찾을 수 없습니다."));
         post.update(updatePostRequest.getTitle(), updatePostRequest.getContent());
     }
-    public void deletePost(String title) {
-        postRepository.delete(title);
+    public void deletePost(Long id) {
+        Post findPost = postRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException(id + "으로 Post를 찾을 수 없습니다."));
+        postRepository.delete(findPost);
     }
 
 }
