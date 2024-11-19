@@ -21,12 +21,6 @@ public class MemberService {
         memberRepository.save(member);
     }
 
-//    public MemberResponse getMemberByName(String name){
-//        Member member = memberRepository.findByName(name)
-//                .orElseThrow(()->new IllegalArgumentException("Member를 찾을 수 없습니다."));
-//        return MemberResponse.from(member);
-//    }
-
     @Transactional(readOnly = true)
     public MemberResponse getMemberById(final Long id) {
            Member member = memberRepository.findById(id)
