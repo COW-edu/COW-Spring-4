@@ -38,4 +38,13 @@ public class Post {
             .member(member)
             .build();
     }
+
+    public void updatePost(String title, String content){
+        if (title != null && !title.isEmpty()) {
+            this.title = title;
+        }
+        if (content != null && !content.isEmpty()) {
+            this.content = content;
+        }
+    }
 }
