@@ -29,9 +29,9 @@ public class PostController {
         return postService.getPosts();
     }
 
-    @PutMapping("/posts/{title}")
-    public void updatePost(@RequestBody UpdatePostRequest updatePostemberRequest, @PathVariable("title") String title) {
-        postService.updatePost(title, updatePostemberRequest);
+    @PutMapping("/posts/{id}")
+    public void updatePost(@RequestBody UpdatePostRequest updatePostRequest, @PathVariable("id") Long id) {
+        postService.updatePost(id, updatePostRequest);
     }
 
     @DeleteMapping("/posts/{title}")

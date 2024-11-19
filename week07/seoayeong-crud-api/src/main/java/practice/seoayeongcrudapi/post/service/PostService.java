@@ -38,9 +38,10 @@ public class PostService {
         }
         return postResponses;
     }
-    public void updatePost(String title, UpdatePostRequest updatePostRequest) {
-        Post post = updatePostRequest.toEntity();
-        postRepository.patch(title, post);
+    public void updatePost(Long id, UpdatePostRequest updatePostRequest) {
+        Post post = postRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Post를 찾을 수 없습니다. ID: " + id));
+        post.update(updatePostRequest.getTitle(), updatePostRequest.getContent());
     }
     public void deletePost(String title) {
         postRepository.delete(title);
