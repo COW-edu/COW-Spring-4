@@ -2,16 +2,13 @@ package practice.jungsukwoocrudapi.member.controller.dto.response;
 
 import lombok.Builder;
 import lombok.Getter;
-import lombok.AllArgsConstructor;
 import practice.jungsukwoocrudapi.member.entity.Member;
 
 @Getter
 public class MemberResponse {
 
     private String name;
-
     private String email;
-
     private String password;
 
     @Builder

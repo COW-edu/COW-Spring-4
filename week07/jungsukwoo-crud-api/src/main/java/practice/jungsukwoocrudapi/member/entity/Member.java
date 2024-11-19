@@ -10,7 +10,6 @@ import practice.jungsukwoocrudapi.post.entity.Post;
 import java.util.ArrayList;
 import java.util.List;
 
-
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -23,9 +22,7 @@ public class Member {
     private Long id;
 
     private String name;
-
     private String email;
-
     private String password;
 
     @OneToMany(mappedBy = "member", orphanRemoval = true)

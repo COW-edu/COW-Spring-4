@@ -29,9 +29,8 @@ public class MemberController {
         return memberService.updateMemberById(id, updateMemberRequest);
     }
 
-    @DeleteMapping("{id}")
+    @DeleteMapping("/{id}")
     public void deleteMemberById(@PathVariable("id") Long id) {
         memberService.deleteMemberById(id);
     }
 }
-

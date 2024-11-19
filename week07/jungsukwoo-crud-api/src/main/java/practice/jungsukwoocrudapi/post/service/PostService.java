@@ -1,11 +1,8 @@
 package practice.jungsukwoocrudapi.post.service;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import practice.jungsukwoocrudapi.member.controller.dto.request.CreateMemberRequest;
-import practice.jungsukwoocrudapi.member.controller.dto.response.MemberResponse;
 import practice.jungsukwoocrudapi.member.entity.Member;
 import practice.jungsukwoocrudapi.member.repository.MemberRepository;
 import practice.jungsukwoocrudapi.post.controller.dto.request.CreatePostRequest;
@@ -57,6 +54,4 @@ public class PostService {
     public void deletePostById(Long id) {
         postRepository.deleteById(id);
     }
-
-
 }

@@ -29,17 +29,17 @@ public class PostController {
         return postService.getAllPosts();
     }
 
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     public PostResponse getPostById(@PathVariable("id") Long id) {
         return postService.getPostById(id);
     }
 
-    @PutMapping("{id}")
+    @PutMapping("/{id}")
     public void updatePostById(@PathVariable("id") Long id, @RequestBody UpdatePostRequest updatePostRequest) {
         postService.updatePostById(id, updatePostRequest);
     }
 
-    @DeleteMapping("{id}")
+    @DeleteMapping("/{id}")
     public void deletePostById(@PathVariable("id") Long id) {
         postService.deletePostById(id);
     }
