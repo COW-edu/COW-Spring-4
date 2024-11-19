@@ -1,13 +1,10 @@
 package practice.jungsukwoocrudapi.post.repository;
 
-import org.springframework.stereotype.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
 import practice.jungsukwoocrudapi.post.entity.Post;
 
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.Optional;
 
-@Repository
-public class PostRepository {
-    private final Map<String, Post> postRepository = new ConcurrentHashMap<>();
-
+public interface PostRepository extends JpaRepository<Post, Long> {
+    Optional<Post> findById(Long Id);
 }
