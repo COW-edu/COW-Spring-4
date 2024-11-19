@@ -47,5 +47,6 @@ public class Member {
     public void update(Member updateMember) {
         this.name = updateMember.getName();
         this.email = updateMember.getEmail();
+        this.password = updateMember.getPassword();
     }
 }

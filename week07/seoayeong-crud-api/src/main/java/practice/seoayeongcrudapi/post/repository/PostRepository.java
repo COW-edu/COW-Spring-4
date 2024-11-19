@@ -1,25 +1,15 @@
 package practice.seoayeongcrudapi.post.repository;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+import practice.seoayeongcrudapi.member.entity.Member;
 import practice.seoayeongcrudapi.post.entity.Post;
 
 import java.util.Map;
+import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 
 @Repository
-public class PostRepository {
-    private final Map<String, Post> postRepository = new ConcurrentHashMap<>();
+public interface PostRepository extends JpaRepository<Post, Long> {
+    Optional<Post> findById(Long id);
 
-    public void upload(Post post) {
-        postRepository.put(post.getTitle(), post);
-    }
-    public Post findById(String id) {
-        return postRepository.get(id);
-    }
-    public void patch(String title, Post post) {
-        postRepository.remove(title);
-        postRepository.put(post.getTitle(), post);
-    }
-    public void delete(String title) {
-        postRepository.remove(title);
-    }
 }

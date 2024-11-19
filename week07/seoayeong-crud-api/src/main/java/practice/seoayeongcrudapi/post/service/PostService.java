@@ -2,6 +2,8 @@ package practice.seoayeongcrudapi.post.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import practice.seoayeongcrudapi.member.controller.dto.request.CreateMemberRequest;
+import practice.seoayeongcrudapi.member.entity.Member;
 import practice.seoayeongcrudapi.post.controller.dto.request.UpdatePostRequest;
 import practice.seoayeongcrudapi.post.controller.dto.request.CreatePostRequest;
 import practice.seoayeongcrudapi.post.controller.dto.response.PostResponse;
@@ -15,7 +17,7 @@ public class PostService {
 
     public void uploadPost(CreatePostRequest createPostRequest) {
         Post post = createPostRequest.toEntity();
-        postRepository.upload(post);
+        postRepository.save(post);
     }
     public PostResponse getPost(String id) {
         Post post = postRepository.findById(id);
