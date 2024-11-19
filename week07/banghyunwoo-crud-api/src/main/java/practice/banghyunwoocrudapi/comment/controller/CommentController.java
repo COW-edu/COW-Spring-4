@@ -6,7 +6,6 @@ import practice.banghyunwoocrudapi.comment.controller.dto.request.CreateCommentR
 import practice.banghyunwoocrudapi.comment.controller.dto.request.UpdateCommentRequest;
 import practice.banghyunwoocrudapi.comment.controller.dto.response.CommentResponse;
 import practice.banghyunwoocrudapi.comment.service.CommentService;
-import practice.banghyunwoocrudapi.member.entity.Member;
 
 
 import java.util.List;

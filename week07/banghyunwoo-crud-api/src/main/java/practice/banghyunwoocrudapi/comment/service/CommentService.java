@@ -13,9 +13,8 @@ import practice.banghyunwoocrudapi.member.repository.MemberJpaRepository;
 import practice.banghyunwoocrudapi.post.entity.Post;
 import practice.banghyunwoocrudapi.post.repository.PostRepository;
 
-import java.util.ArrayList;
+
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -55,6 +54,7 @@ public class CommentService {
         commentRepository.delete(comment);
     }
 
+    @Transactional(readOnly = true)
     public List<CommentResponse> getByUserId(Long userId) {
         return commentRepository.findByMemberId(userId).stream()
                 .map(comment -> CommentResponse.from(comment))
