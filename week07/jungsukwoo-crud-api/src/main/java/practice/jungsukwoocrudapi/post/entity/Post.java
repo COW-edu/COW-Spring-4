@@ -5,7 +5,11 @@ import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import practice.jungsukwoocrudapi.comment.entity.Comment;
 import practice.jungsukwoocrudapi.member.entity.Member;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Entity
@@ -23,6 +27,9 @@ public class Post {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")
     private Member member;
+
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
+    private List<Comment> comments = new ArrayList<>();
 
     @Builder
     private Post(final String title, final String content, final Member member) {
