@@ -3,9 +3,6 @@ package practice.banghyunwoocrudapi.comment.controller.dto.response;
 import lombok.Builder;
 import lombok.Getter;
 import practice.banghyunwoocrudapi.comment.entity.Comment;
-import practice.banghyunwoocrudapi.comment.repository.CommentRepository;
-import practice.banghyunwoocrudapi.member.entity.Member;
-import practice.banghyunwoocrudapi.post.entity.Post;
 
 @Getter
 public class CommentResponse {

@@ -7,7 +7,6 @@ import practice.banghyunwoocrudapi.comment.controller.dto.request.UpdateCommentR
 import practice.banghyunwoocrudapi.comment.controller.dto.response.CommentResponse;
 import practice.banghyunwoocrudapi.comment.service.CommentService;
 
-
 import java.util.List;
 
 @RestController

@@ -6,12 +6,8 @@ import practice.banghyunwoocrudapi.comment.controller.dto.response.CommentRespon
 import practice.banghyunwoocrudapi.comment.entity.Comment;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface CommentRepository extends JpaRepository<Comment, Long> {
-
-    @Override
-    Optional<Comment> findById(Long Id);
 
     List<Comment> findByPostId(Long postId);
 
