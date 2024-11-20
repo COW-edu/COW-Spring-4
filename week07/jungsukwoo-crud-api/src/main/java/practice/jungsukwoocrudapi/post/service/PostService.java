@@ -31,10 +31,10 @@ public class PostService {
 
     @Transactional(readOnly = true)
     public List<PostResponse> getAllPosts() {
-        List<Post> posts = postRepository.findAll();  // 모든 게시글 조회
+        List<Post> posts = postRepository.findAll();
         return posts.stream()
-                .map(PostResponse::from)  // 각 Post 엔티티를 PostResponse로 변환
-                .collect(Collectors.toList());  // 리스트로 수집
+                .map(PostResponse::from)
+                .collect(Collectors.toList());
     }
 
     @Transactional(readOnly = true)
