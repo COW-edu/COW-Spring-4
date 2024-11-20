@@ -35,4 +35,12 @@ public class Comment {
         this.member = member;
     }
 
+    public static Comment from(final String content, final Post post, final Member member){
+        return Comment.builder()
+                .content(content)
+                .post(post)
+                .member(member)
+                .build();
+    }
+
 }
