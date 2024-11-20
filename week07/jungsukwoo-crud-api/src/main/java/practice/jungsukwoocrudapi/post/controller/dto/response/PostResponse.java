@@ -6,20 +6,14 @@ import lombok.AllArgsConstructor;
 import practice.jungsukwoocrudapi.post.entity.Post;
 
 @Getter
+@Builder
+@AllArgsConstructor
 public class PostResponse {
 
     private Long id;
     private String title;
     private String content;
     private Long userId;
-
-    @Builder
-    private PostResponse(Long id, String title, String content, Long userId){
-        this.id = id;
-        this.title = title;
-        this.content = content;
-        this.userId = userId;
-    }
 
     public static PostResponse from(Post post){
         return PostResponse.builder()
