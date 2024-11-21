@@ -1,4 +1,4 @@
-package practice.jungsukwoocrudapi.comment.Controller;
+package practice.jungsukwoocrudapi.comment.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
