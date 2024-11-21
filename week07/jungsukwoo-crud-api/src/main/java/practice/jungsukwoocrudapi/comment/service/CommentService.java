@@ -3,6 +3,7 @@ package practice.jungsukwoocrudapi.comment.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import practice.jungsukwoocrudapi.comment.dto.request.CreateCommentRequest;
 import practice.jungsukwoocrudapi.comment.dto.response.CommentResponse;
 import practice.jungsukwoocrudapi.comment.entity.Comment;
@@ -43,4 +44,10 @@ public class CommentService {
                 .map(CommentResponse::from)
                 .collect(Collectors.toList());
     }
+
+    @DeleteMapping
+    public void deleteCommentById(Long id){
+        commentRepository.deleteById(id);
+    }
+
 }
