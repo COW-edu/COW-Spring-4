@@ -8,27 +8,28 @@ import practice.seoayeongcrudapi.member.controller.dto.response.MemberResponse;
 import practice.seoayeongcrudapi.member.service.MemberService;
 
 @RestController
+@RequestMapping("/members")
 @RequiredArgsConstructor
 public class MemberController {
 
     private final MemberService memberService;
 
-    @PostMapping("/members")
+    @PostMapping()
     public void signUp(@RequestBody CreateMemberRequest createMemberRequest) {
         memberService.signUp(createMemberRequest);
     }
 
-    @GetMapping("/members/{id}")
+    @GetMapping("/{id}")
     public MemberResponse getMember(@PathVariable("id") Long id) {
         return memberService.getMemberByName(id);
     }
 
-    @PutMapping("/members/{id}")
+    @PutMapping("/{id}")
     public void updateMember(@RequestBody UpdateMemberRequest updateMemberRequest, @PathVariable("id") Long id) {
         memberService.updateMember(id, updateMemberRequest);
     }
 
-    @DeleteMapping("/members/{id}")
+    @DeleteMapping("/{id}")
     public void deleteMember(@PathVariable("id") Long id) {
         memberService.deleteMember(id);
     }
